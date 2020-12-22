@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="logs" value="./logs" />
+	
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %green(%C{1.1}): %msg%n%throwable
+			</Pattern>
+		</layout>
+	</appender>
+	
+	<!-- Log everything at INFO level -->
+	<root level="info">
+		<appender-ref ref="console"></appender-ref>
+	</root>
+	
+	<!-- Log "com.cars24.dms" at TRACE level -->
+	<logger name="console-logger" level="info" additivity="false">
+		<appender-ref ref="console"></appender-ref>
+	</logger>
+</configuration>
